@@ -9,6 +9,7 @@ def personasAnotherCreateView(request):
         form = RawPersonaForm(request.POST)
         if form.is_valid():
             print(form.cleaned_data)
+            print.objects.create(**form.cleaned_data)
         else:
             print(form.errors)
     context = {
