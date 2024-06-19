@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Persona
-from .forms import RawPersonaForm
+from .forms import RawPersonaForm, PersonaForm
 
 # Create your views here.
 def personasAnotherCreateView(request):
@@ -9,7 +9,7 @@ def personasAnotherCreateView(request):
         form = RawPersonaForm(request.POST)
         if form.is_valid():
             print(form.cleaned_data)
-            print.objects.create(**form.cleaned_data)
+            
         else:
             print(form.errors)
     context = {
@@ -34,3 +34,10 @@ def personaCreateView(request, *args, **kwargs):
     
 def searchForHelp(request):
     return render(request, 'personas/search.html', {})
+    
+def personasShowObjects(request, myID):
+    obj = Persona.objects.get(id = myID)
+    context = {
+        'objeto': obj
+        }
+    return render(request, 'personas/descripcion.html', context)
