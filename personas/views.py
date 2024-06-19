@@ -54,6 +54,7 @@ def personasDeleteView(request, myID):
     if request.method == 'POST':
         print("Lo borro")
         obj.delete()
+        return redirect('../')
     context = {
         'objeto': obj,
         }
