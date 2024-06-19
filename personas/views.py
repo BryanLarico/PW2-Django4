@@ -41,3 +41,10 @@ def personasShowObjects(request, myID):
         'objeto': obj
         }
     return render(request, 'personas/descripcion.html', context)
+
+def personasListView(request):
+    queryset = Persona.objects.all()
+    context = {
+        'objectList': queryset,
+        }
+    return render(request, 'personas/personasLista.html', context)
