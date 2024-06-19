@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Hola mundo desde DJango</h2>
+<h2>Con templates </h2>
+<p>
+	{{myText|upper}}
+	{{myNumber}}
+</p>
+<ul>
+	{% for myItem in myList %}
+		<li>{{forloop.counter}} - {{ myItem|add:2 }}
+		{% if myItem == 33 %}
+			- Este numero es magico
+		{% elif myItem|divisibleby:2 %}
+			- Este numero es par
+		{% elif myItem > 50 %}
+			- Este numero es mayor a 50
+		{% endif %}
+		</li>
+	{% endfor %}
+</ul>
+{% endblock %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Templates Base</title>
+	</head>
+	
+	<body>
+		<h1>Hola Mundo desde DJango (con archivo html)</h1>
+		{{request.user}}
+		<h2>Con templates<h2>
+		{{request.user.is_authenticated}}
+	</body>
+</html>

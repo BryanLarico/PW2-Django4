@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>{{objeto.nombre}} {{objeto.apellidos}}</h1>
+<h2>
+	{% if objeto.edad > 40 %}
+	Debe cuidarse del coresterol
+	{% else %}
+	Puede comer lo que quiera
+	{% endif %}
+</h2>
+{% endblock %}
