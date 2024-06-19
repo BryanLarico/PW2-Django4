@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Persona
 from .forms import RawPersonaForm, PersonaForm
 
@@ -36,7 +36,7 @@ def searchForHelp(request):
     return render(request, 'personas/search.html', {})
     
 def personasShowObjects(request, myID):
-    obj = Persona.objects.get(id = myID)
+    obj = get_object_or_404(Persona, id = myID)
     context = {
         'objeto': obj
         }
